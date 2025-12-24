@@ -1,82 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- <meta name="keywords" content="no 1, news app">
-    <meta name="description" content="bdhjdbasjhbas"> -->
-
-
-    <title>Css</title>
-<style>
- @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
- *{
-  margin: 0;
-  padding: 0;
-
- }
- body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
- }
-  /* .bx1{
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    position: absolute;
-  clip-path: circle();
-    z-index: 3;
-  }
-  .bx2{
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 4;
-    clip-path: circle();
-  }
-  .bx3{
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    clip-path: polygon(71% 99%, 100% 38%, 37% 0, 18% 100%, 0% 38%);
-    z-index: 4;
-  } */
-h1
-{
- background-color: red;
- display: inline-block;
- width: 400px;
-}
-strong{
-  background-color: blue;
-  display: block;
-}
-span{
-  background-color: green;
-  display: block;
-}
-
-</style>
-
- </head>
-<h1>head</h1>
-<strong>hi</strong>
-<span>Yo</span>
-  <body>
-
-
- 
-
-  </body>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Document</title>
+    <style>
+       *{
+        padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+       }
+        .box-container{
+          height: 100vh;
+          display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .content{
+            width: 470px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .content img{
+            height: 350px;
+            width: 100%;
+            
+        }
+        .content h1{
+            text-align:  center;
+            font-size: 2em;
+            margin: 10px;
+        }
+        .content p,.cook{
+            padding: 10px;
+        }
+        .content-text{
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 6px;
+        }
+       .content-text .star i{
+            font-size: 0.8rem;
+             color: orange;
+        }
+       
+        .cook{
+              width: 100%;
+              height: 40px;
+              background-color: red;
+              border: 0;
+              color: white;
+              
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <div class="content">
+            <img src="assets/images/food-images-3.jpg" alt="">
+            <h1>Food</h1>
+            <div class="content-text">
+                <div class="time"><p> <i class="fa-solid fa-clock"></i> <span>30min</span></p></div>
+                <div class="star"><p>Star: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p></div> 
+            </div>
+          <p>
+           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam omnis error sed ipsum unde earum aut laborum, asperiores repellat ipsam doloribus autem rerum suscipit temporibus, doloremque odio dolore provident voluptate.
+          </p>
+          <button class="cook">Lets Cook</button>
+        </div>
+    </div>
+</body>
 </html>
