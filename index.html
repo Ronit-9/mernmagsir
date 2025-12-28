@@ -4,76 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <title>Document</title>
+    <title>Flexbox</title>
     <style>
-       *{
-        padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-       }
-        .box-container{
-          height: 100vh;
-          display: flex;
-        justify-content: center;
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+         *{
+          padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+         }
+         body{
+            background-color: rgb(255, 202, 96);
+         }
+         h1{
+            text-align: center;
+            margin: 20px;
+            font-size: 9.5em;
+            font-weight: 900;
+            font-family: 'Roboto', sans-serif;
+         }
+    .flex-box{
+        display: flex;
+        justify-content: space-around;
         align-items: center;
-        }
-        .content{
-            width: 470px;
-            background-color: white;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .content img{
-            height: 350px;
-            width: 100%;
-            
-        }
-        .content h1{
-            text-align:  center;
-            font-size: 2em;
-            margin: 10px;
-        }
-        .content p,.cook{
-            padding: 10px;
-        }
-        .content-text{
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 1.5em;
-            margin: 6px;
-        }
-       .content-text .star i{
-            font-size: 0.8rem;
-             color: orange;
-        }
+        margin-right: 80px;
+        margin-left: 80px;
+        margin-top: 40px;
+    }
+    
+    .item1, .item2, .item3{
+        width: 400px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-radius: 10px;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .item1 i{
+        font-size: 12em;
+        color: #61DBFB;
+       text-align: center;
        
-        .cook{
-              width: 100%;
-              height: 40px;
-              background-color: red;
-              border: 0;
-              color: white;
-              
-        }
+    }
+    .item2 i{
+        font-size: 12em;
+        color: #DD0031;
+       text-align: center;
+       
+    }
+    .item3 i{
+        font-size: 12em;
+        color: #42b883;
+       text-align: center;
         
+    }
+   div h2{
+        text-align: center;
+        margin: 10px;
+        font-size: 2em;
+   }
+   .flex-box p{
+        text-align: center;
+        min-height: 170px;
+        font-size: 1.2em;
+        margin-top: 10px;
+        font-weight: 500;
+        line-height: 1.5em;
+        word-spacing: 2px;
+   }
+ 
+    .flex-box2{
+        background-color: white;
+       margin-top: 40px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+    }
+    .inner-content{
+        padding: 40px;
+        display: flex;
+        background-color: white;
+       justify-content: left;
+        align-items: left;              
+    }
+    .box1, .box2, .box3{
+        width: 380px;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    .box1{
+        background-color: rgb(227, 181, 55);
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+    .box2{
+        background-color: rgb(48, 168, 212);
+    }
+    .box3{
+        background-color: rgb(20, 104, 56);
+         border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    .inner-content button{
+        width: 140px;
+        height: 60px;
+        border: none;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .flex-box2 p{
+        text-align: center;
+        font-size: 1.2em;
+        margin-top: 10px;
+        font-weight: 400;
+        line-height: 1.7em;
+        word-spacing: 6px;
+        font-style: normal;
+       min-height: 170px;
+       text-align: left;
+   }
+   .flex-box2 h2{
+    text-align: left;
+    font-size: 2.5em;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+
+}
+  
+   .flex-box2 i{
+    font-size: 2em;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   }
+     @media (max-width:1400px){
+    .flex-box{
+        flex-direction: column;
+        display: flex;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .item1, .item2, .item3{
+        margin-bottom: 30px;
+    }
+    h1{
+        font-size: 3em;
+    }
+    .flex-box2 .inner-content{
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .box1, .box2, .box3{
+        margin-bottom: 30px;
+        border-radius: 8px;
+    }
+   }
     </style>
 </head>
 <body>
-    <div class="box-container">
-        <div class="content">
-            <img src="assets/images/food-images-3.jpg" alt="">
-            <h1>Food</h1>
-            <div class="content-text">
-                <div class="time"><p> <i class="fa-solid fa-clock"></i> <span>30min</span></p></div>
-                <div class="star"><p>Star: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p></div> 
-            </div>
-          <p>
-           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam omnis error sed ipsum unde earum aut laborum, asperiores repellat ipsam doloribus autem rerum suscipit temporibus, doloremque odio dolore provident voluptate.
-          </p>
-          <button class="cook">Lets Cook</button>
+    <div class="heading">
+    <h1>CSS Flexbox Cards</h1>
+    </div>
+    <div class="flex-box">
+        <div class="item1">
+            <i class="fa-brands fa-react"></i>
+            <h2>
+                ReactJS
+            </h2>
+            <p>React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.</p>
+        </div>
+        <div class="item2">
+            <i class="fa-brands fa-angular"></i>
+            <h2>
+                Angular
+            </h2> 
+            <p>Angular is an open-source, TypeScript-based web application framework maintained by Google and a large developer community. It is designed for building dynamic, scalable, and maintainable single-page applications.</p>
+         </div>
+        <div class="item3">
+            <i class="fa-brands fa-vuejs"></i>
+            <h2>
+                VueJS
+            </h2>
+            <p>Vue is an open-source, progressive JavaScript framework for building user interfaces. Created by Evan You in 2014, Vue was designed as an alternative to heavier frameworks like AngularJS and React. </p>
         </div>
     </div>
+    <div class="flex-box2">
+         <div class="inner-content">
+                  <div class="box1">
+                     <i class="fa-solid fa-car-side"></i>
+         
+           
+            <h2>SEDANS</h2>
+            <p>Experience a luxury and comfort with our sedan models. Perfect for family trips and business meetings lorem
+
+            </p>
+            <button>Learn more</button>
+        </div>
+        <div class="box2">
+            <i class="fa-solid fa-car-side"></i>
+            <h2>SUVS</h2>
+            <p>Explore the great outdoors with our rugged and spacious SUVs. Ideal for off-road adventures and group travel.</p>
+            <button>Learn more</button>
+    </div>
+    <div class="box3">
+ <i class="fa-solid fa-car-side"></i>
+        <h2>LUXURY</h2>
+        <p>Experience the pinnacle of luxury and performance with our premium luxury vehicles. Designed for those who demand the finest craftsmanship and technology.</p>
+        <button>Learn more</button>
+    </div>
+         </div>
+    </div>
+
 </body>
 </html>
