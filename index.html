@@ -1,238 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <title>Flexbox</title>
+    <title>Css Template</title>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-         *{
-          padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-         }
-         body{
-            background-color: rgb(255, 202, 96);
-         }
-         h1{
-            text-align: center;
-            margin: 20px;
-            font-size: 9.5em;
-            font-weight: 900;
-            font-family: 'Roboto', sans-serif;
-         }
-    .flex-box{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-right: 80px;
-        margin-left: 80px;
-        margin-top: 40px;
-    }
-    
-    .item1, .item2, .item3{
-        width: 400px;
-        display: flex;
-        align-items: center;
-        background-color: white;
-        border-radius: 10px;
-        flex-direction: column;
-        padding: 20px;
-    }
-    .item1 i{
-        font-size: 12em;
-        color: #61DBFB;
-       text-align: center;
-       
-    }
-    .item2 i{
-        font-size: 12em;
-        color: #DD0031;
-       text-align: center;
-       
-    }
-    .item3 i{
-        font-size: 12em;
-        color: #42b883;
-       text-align: center;
-        
-    }
-   div h2{
-        text-align: center;
-        margin: 10px;
-        font-size: 2em;
-   }
-   .flex-box p{
-        text-align: center;
-        min-height: 170px;
-        font-size: 1.2em;
-        margin-top: 10px;
-        font-weight: 500;
-        line-height: 1.5em;
-        word-spacing: 2px;
-   }
- 
-    .flex-box2{
-        background-color: white;
-       margin-top: 40px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-
-    }
-    .inner-content{
-        padding: 40px;
-        display: flex;
-        background-color: white;
-       justify-content: left;
-        align-items: left;              
-    }
-    .box1, .box2, .box3{
-        width: 380px;
-        padding: 20px;
-        text-align: center;
-        color: white;
-        display: flex;
-        flex-direction: column;
-    }
-    .box1{
-        background-color: rgb(227, 181, 55);
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-    }
-    .box2{
-        background-color: rgb(48, 168, 212);
-    }
-    .box3{
-        background-color: rgb(20, 104, 56);
-         border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-    }
-    .inner-content button{
-        width: 140px;
-        height: 60px;
-        border: none;
-        background-color: white;
-        color: black;
-        border-radius: 30px;
-        font-size: 1em;
-        cursor: pointer;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-    .flex-box2 p{
-        text-align: center;
-        font-size: 1.2em;
-        margin-top: 10px;
-        font-weight: 400;
-        line-height: 1.7em;
-        word-spacing: 6px;
-        font-style: normal;
-       min-height: 170px;
-       text-align: left;
-   }
-   .flex-box2 h2{
-    text-align: left;
-    font-size: 2.5em;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-family: 'Roboto', sans-serif;
-
-}
-  
-   .flex-box2 i{
-    font-size: 2em;
-    margin-bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-   }
-     @media (max-width:1400px){
-    .flex-box{
-        flex-direction: column;
-        display: flex;
+    *{
+        margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, sans-serif;
+      }
+      header {
+        display: flex;
+        padding: 10px 20px;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        position: fixed;
+        background-color: white;
+        width: 100vw;
+        height: 40px;
+        z-index: 1;
+        height: 55px;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-    }
-    .item1, .item2, .item3{
-        margin-bottom: 30px;
-    }
-    h1{
-        font-size: 3em;
-    }
-    .flex-box2 .inner-content{
-        
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .box1, .box2, .box3{
-        margin-bottom: 30px;
+      }
+
+      .logo {
+        display: flex;
+        gap: 5px;
+         padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 4px;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
         border-radius: 8px;
-    }
-   }
+      }
+     
+
+      nav a {
+        text-decoration: none;
+        font-size: 17px;
+        color: black;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 4px;
+      }
+      .logo:hover{
+          background-color: #9e9fa2;
+          cursor: pointer;
+   
+      }
+      nav a:hover{
+        background-color: #9e9fa2;
+      }
+
+      .dis-section {
+        height: 600px;
+        background-image: url('https://www.w3schools.com/w3images/architect.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 40px;
+        z-index: 0;
+      }
+
+      .dis-info {
+        display: flex;
+        gap: 10px;
+        color: white;
+      }
+
+      .br {
+        background-color: #1B1C1E;
+        font-size: 20px;
+        padding: 10px;
+        display: inline-block;
+      }
+       main {
+        padding: 0 20px;
+      }
+
+      .projects {
+        margin: 80px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .projects h1{
+        font-weight: 100;
+      }
+      .houses{
+        display: flex;
+        justify-content: space-between;
+      }
+      .house{
+        width: 350px;
+        position: relative;
+      
+      }
+      .house img{
+          vertical-align: middle;
+          width: 100%;
+          
+      }
+      .house h3{
+        position: absolute;
+        top: 0;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 16px;
+      }
+        .about {
+        margin: 80px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .about h1{
+        font-weight: 100;
+      }
+      .about p{
+        font-size: 15px;
+      }
+      .shareholders{
+        display: flex;
+        justify-content: space-between;
+ 
+      }
+      .shareholder{
+        width: 350px;
+      }
+      .shareholder img{
+        width: 100%;
+        vertical-align: center;
+      }
+      .shareholder h3{
+        padding: 10px 0px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .shareholder h5{
+        color: #9e9fa2;
+        font-weight: 100;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        padding: 10px 0px;
+      }
+      .shareholder p{
+        padding: 10px 0px;
+      }
+      .shareholder button{
+        width: 100%;
+        height: 35px;
+        border: none;
+      }
+        .contact {
+        margin: 80px 0 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .contact h1{
+        font-weight: 100;
+      }
+      .contact input{
+        width: 100%;
+        margin: 10px 0;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 15px;
+      }
+      .contact button{
+        border: none;
+        background-color: #1B1C1E;
+        color: white;
+        height: 40px;
+        width: 140px;
+        font-size: 15px;
+        margin-top: 20px;
+      }
+      footer{
+        height: 85px;
+        background-color: black;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
     </style>
-</head>
-<body>
-    <div class="heading">
-    <h1>CSS Flexbox Cards</h1>
-    </div>
-    <div class="flex-box">
-        <div class="item1">
-            <i class="fa-brands fa-react"></i>
-            <h2>
-                ReactJS
-            </h2>
-            <p>React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.</p>
-        </div>
-        <div class="item2">
-            <i class="fa-brands fa-angular"></i>
-            <h2>
-                Angular
-            </h2> 
-            <p>Angular is an open-source, TypeScript-based web application framework maintained by Google and a large developer community. It is designed for building dynamic, scalable, and maintainable single-page applications.</p>
-         </div>
-        <div class="item3">
-            <i class="fa-brands fa-vuejs"></i>
-            <h2>
-                VueJS
-            </h2>
-            <p>Vue is an open-source, progressive JavaScript framework for building user interfaces. Created by Evan You in 2014, Vue was designed as an alternative to heavier frameworks like AngularJS and React. </p>
-        </div>
-    </div>
-    <div class="flex-box2">
-         <div class="inner-content">
-                  <div class="box1">
-                     <i class="fa-solid fa-car-side"></i>
-         
-           
-            <h2>SEDANS</h2>
-            <p>Experience a luxury and comfort with our sedan models. Perfect for family trips and business meetings lorem
 
-            </p>
-            <button>Learn more</button>
-        </div>
-        <div class="box2">
-            <i class="fa-solid fa-car-side"></i>
-            <h2>SUVS</h2>
-            <p>Explore the great outdoors with our rugged and spacious SUVs. Ideal for off-road adventures and group travel.</p>
-            <button>Learn more</button>
-    </div>
-    <div class="box3">
- <i class="fa-solid fa-car-side"></i>
-        <h2>LUXURY</h2>
-        <p>Experience the pinnacle luxury and performance with our premium luxury vehicles. Designed for those who demand the finest craftsmanship and technology.</p>
-        <button>Learn more</button>
-    </div>
-         </div>
-    </div>
 
-</body>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="logo">
+        <h4>BR</h4>
+        <p>Architects</p>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+      </nav>
+    </header>
+
+    <section class="dis-section">
+      <div class="dis-info">
+        <span class="br">BR</span>
+        <h1>Architects</h1>
+      </div>
+    </section>
+
+<main>
+      <section class="projects" id="projects">
+        <h1>Projects</h1>
+        <hr>
+
+
+        <div class="houses">
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house5.jpg" alt="">
+            <h3>Summer House</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house2.jpg" alt="">
+            <h3>Brick House</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house3.jpg" alt="">
+            <h3>Renovated</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house4.jpg" alt="">
+            <h3>Barn House</h3>
+          </div>
+        </div>
+        
+        <div class="houses">
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house2.jpg" alt="">
+            <h3>Summer House</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house5.jpg" alt="">
+            <h3>Brick House</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house4.jpg" alt="">
+            <h3>Renovated</h3>
+          </div>
+          <div class="house">
+            <img src="https://www.w3schools.com/w3images/house3.jpg" alt="">
+            <h3>Barn House</h3>
+          </div>
+        </div>
+      </section>
+  <section class="about" id="about">
+                    <h1>About</h1>
+                      <hr>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <div class="shareholders">
+                         <div class="shareholder">
+                          <img src="https://www.w3schools.com/w3images/team2.jpg" alt="">
+                          <h3>John Doe</h3>
+                          <h5>CEO & Co founder</h5>
+                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                          <button>Contact</button>
+                         </div>
+                          <div class="shareholder">
+                          <img src="https://www.w3schools.com/w3images/team1.jpg" alt="">
+                          <h3>Jane Doe</h3>
+                          <h5>Architect</h5>
+                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                          <button>Contact</button>
+                         </div>
+                          <div class="shareholder">
+                          <img src="https://www.w3schools.com/w3images/team3.jpg" alt="">
+                          <h3>Mike Ross</h3>
+                          <h5>Architect</h5>
+                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                          <button>Contact</button>
+                         </div>
+                          <div class="shareholder">
+                          <img src="https://www.w3schools.com/w3images/team4.jpg" alt="">
+                          <h3>Dan Star</h3>
+                          <h5>Architect</h5>
+                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                          <button>Contact</button>
+                         </div>
+                    </div>
+          </section>
+          <section class="contact" id="contact">
+              <h1>Contact</h1>
+                      <hr>
+                      <p>Lets get in touch and talk about your next project.</p>
+                     <form action="/submit" method="post">
+
+  <input type="text" id="name" name="name" placeholder="Name">
+  <input type="email" id="email" name="email" placeholder="Email">
+   <input type="subject" id="subject" name="subject" placeholder="Subject">
+    <input type="subject" id="subject" name="subject" placeholder="Subject">
+    <button>Send Message</button>
+</form>
+    <img src="https://www.w3schools.com/w3images/map.jpg" alt="">
+          </section>
+    </main>
+    <footer>
+      <p>Clone form W3.CSS template</p>
+    </footer>
+    
+  </body>
+
 </html>
