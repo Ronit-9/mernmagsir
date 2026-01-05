@@ -1,358 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css Template</title>
-
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>PHOTOLIO</title>
+  <style>
     *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Verdana, sans-serif;
-      }
-      header {
-        display: flex;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 10px 20px;
-        justify-content: space-between;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        position: fixed;
-        background-color: white;
-        width: 100vw;
-        height: 40px;
-        z-index: 1;
-        height: 55px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-      .logo {
-        display: flex;
-        gap: 5px;
-        border-radius: 4px;
-        
-      }
+    header{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: grey;
 
-      nav {
-        display: flex;
-        gap: 10px;
-        border-radius: 8px;
-      }
-     
-
-      nav a {
-        text-decoration: none;
-        font-size: 15px;
-        color: black;
-        padding-left: 5px;
-        padding-right: 5px;
-        border-radius: 4px;
-      }
-      .logo:hover{
-          background-color: #9e9fa2;
-          cursor: pointer;
-   
-      }
-      nav a:hover{
-        background-color: #9e9fa2;
-      }
-
-      .dis-section {
-        height: 600px;
-        background-image: url('https://www.w3schools.com/w3images/architect.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 40px;
-        z-index: 0;
-      }
-
-      .dis-info {
-        display: flex;
-        gap: 10px;
-        color: white;
-      }
-
-      .br {
-        background-color: #1B1C1E;
-        font-size: 20px;
-        padding: 10px;
-        display: inline-block;
-      }
-       main {
-        padding: 0 20px;
-      }
-
-      .projects {
-        margin: 80px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .projects h1{
-        font-weight: 100;
-      }
-      .houses{
-          display: grid;
-         grid-template-columns: 1fr 1fr 1fr 1fr;
-         gap: 10px;
-         place-items: center;
-       
-      }
-      .house{
-        width: 300px;
-        position: relative;
+    }
+    header h2{
+      font-weight: 400;
+      font-size: 36px;
+      margin: 10px 0;
       
-      }
-      .house img{
-          vertical-align: middle;
-          width: 100%;
-          
-      }
-      .house h3{
-        position: absolute;
-        top: 0;
-        background-color: black;
-        color: white;
-        padding: 5px;
-        font-size: 16px;
-      }
-        .about {
-        margin: 80px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .about h1{
-        font-weight: 100;
-      }
-      .about p{
-        font-size: 15px;
-      }
-      .shareholders{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        place-items: center;
-        gap: 10px;
-      }
-      .shareholder{
-        width: 350px;
-      }
-      .shareholder img{
-        width: 100%;
-        vertical-align: center;
-      }
-      .shareholder h3{
-        padding: 10px 0px;
-        font-size: 16px;
-        font-weight: 500;
-      }
-      .shareholder h5{
-        color: #9e9fa2;
-        font-weight: 100;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        padding: 10px 0px;
-      }
-      .shareholder p{
-        padding: 10px 0px;
-      }
-      .shareholder button{
-        width: 100%;
-        height: 35px;
-        border: none;
-      }
-        .contact {
-        margin: 80px 0 10px 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .contact h1{
-        font-weight: 100;
-      }
-      .contact input{
-        width: 100%;
-        margin: 10px 0;
-        height: 40px;
-        padding-left: 10px;
-        font-size: 15px;
-      }
-      .contact button{
-        border: none;
-        background-color: #1B1C1E;
-        color: white;
-        height: 40px;
-        width: 140px;
-        font-size: 15px;
-        margin-top: 20px;
-      }
-      footer{
-        height: 85px;
-        background-color: black;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-     @media (max-width: 1250px){
-           .houses{
-               grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-               gap: 10px;
-           }
-           .shareholders{
-            display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 10px;
-           }
-          
-     }
+    }
+    header p{
+      margin: 15px 0;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    header button{
+      margin: 15px 0;
+      padding: 8px 16px;
+      border: none;
+      color: white;
+      background-color: grey;
+      font-size: 15px;
+    }
+    .content{
+      width: 100%;
+      display: flex;  
+    min-height: 100vh;
+    }
    
-   
-    </style>
+    .photo img{
+     width: 100%;
+     height: 100%;
+  object-fit: cover;
+  vertical-align: center;
 
+    }
+    .photos1, .photos2, .photos3 {
+  display: grid;
+  width: 33.333333%;
+  min-height: 100vh;
+ 
+}
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-  </head>
+    .photos1{
+       grid-template-rows: 39fr 10fr 7fr 23fr 15fr 6fr;
 
-  <body>
+    }
+      .photos2{
+      grid-template-rows: 10fr 7fr 15fr 15fr 38fr 14fr;
 
-    <header>
-      <div class="logo">
-        <h4>BR</h4>
-        <p>Architects</p>
-      </div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-
-      </nav>
-    </header>
-
-    <section class="dis-section">
-      <div class="dis-info">
-        <span class="br">BR</span>
-        <h1>Architects</h1>
-      </div>
-    </section>
-
-<main>
-      <section class="projects" id="projects">
-        <h1>Projects</h1>
-        <hr>
-
-
-        <div class="houses">
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house5.jpg" alt="">
-            <h3>Summer House</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house2.jpg" alt="">
-            <h3>Brick House</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house3.jpg" alt="">
-            <h3>Renovated</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house4.jpg" alt="">
-            <h3>Barn House</h3>
-          </div>
-      
-        
-        
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house2.jpg" alt="">
-            <h3>Summer House</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house5.jpg" alt="">
-            <h3>Brick House</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house4.jpg" alt="">
-            <h3>Renovated</h3>
-          </div>
-          <div class="house">
-            <img src="https://www.w3schools.com/w3images/house3.jpg" alt="">
-            <h3>Barn House</h3>
-          </div>
-         </div>
-      </section>
-  <section class="about" id="about">
-                    <h1>About</h1>
-                      <hr>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                    <div class="shareholders">
-                         <div class="shareholder">
-                          <img src="https://www.w3schools.com/w3images/team2.jpg" alt="">
-                          <h3>John Doe</h3>
-                          <h5>CEO & Co founder</h5>
-                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                          <button>Contact</button>
-                         </div>
-                          <div class="shareholder">
-                          <img src="https://www.w3schools.com/w3images/team1.jpg" alt="">
-                          <h3>Jane Doe</h3>
-                          <h5>Architect</h5>
-                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                          <button>Contact</button>
-                         </div>
-                          <div class="shareholder">
-                          <img src="https://www.w3schools.com/w3images/team3.jpg" alt="">
-                          <h3>Mike Ross</h3>
-                          <h5>Architect</h5>
-                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                          <button>Contact</button>
-                         </div>
-                          <div class="shareholder">
-                          <img src="https://www.w3schools.com/w3images/team4.jpg" alt="">
-                          <h3>Dan Star</h3>
-                          <h5>Architect</h5>
-                          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-                          <button >Contact</button>
-                         </div>
-                    </div>
-          </section>
-          <section class="contact" id="contact">
-              <h1>Contact</h1>
-                      <hr>
-                      <p>Lets get in touch and talk about your next project.</p>
-                     <form action="/submit" method="post">
-<form action="/submit" method="post">
-  <input type="text" id="name" name="name" placeholder="Name">
-  <input type="email" id="email" name="email" placeholder="Email">
-  <input type="text" id="subject" name="subject" placeholder="Subject">
-  <input type="text" id="comment" name="comment" placeholder="Comment">
-  <button>Submit</button>
-</form>
-
-
-
+    }
+      .photos3{
+    grid-template-rows:    127px 10fr 23fr 23fr 15fr 23fr;
+    }
+.gapped {
+  gap: 10px;
+}
 
  
-    <img src="https://www.w3schools.com/w3images/map.jpg" alt="">
-          </section>
-    </main>
-    <footer>
-      <p>Clone form W3.CSS template</p>
+
+footer {
+  margin-top: 100px;       /* space above footer */
+  width: 100%;            /* span full width of page */
+  background-color: whitesmoke; /* background color */
+  color: grey;           /* text color */
+  text-align: center;     /* center content */
+  padding: 40px;  
+  font-size: 16px;
+ 
+         /* breathing room inside */
+}
+footer .interaction {
+  margin-bottom: 10px;
+}
+footer i {
+  margin: 20px 8px;          /* spacing between icons */
+  font-size: 20px;   
+       /* make icons visible */
+}
+footer h3 {
+  font-weight: 400;
+  font-size: 16px;
+  padding-bottom: 20px;
+
+}
+footer a{
+  text-decoration: underline;
+  color: grey;
+
+}
+@media (max-width:600px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+  }
+      .photos1, .photos2, .photos3 {
+  width: 100%;
+  
+}
+}
+
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h2>PHOTOLIO</h2>
+    <p>A template made by w3.css for photographers</p>
+    <button>Toggle Grid Padding</button>
+  </header>
+    <section class="content">
+      <div class="photos1">
+        <div class="photo">
+          <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/sound.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/woods.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/rock.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/nature.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/mist.jpg" alt="">
+        </div>
+        </div>
+        <div class="photos2">
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/coffee.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/bridge.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/notebook.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/london.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/avatar_g.jpg" alt="">
+        </div>
+        </div>
+             <div class="photos3">
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/workbench.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/skies.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/lights.jpg" alt="">
+        </div>
+         <div class="photo">
+          <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="">
+        </div>
+      </div>
+    </section>
+   <footer>
+      <div class="interaction">
+        <p>
+          <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-snapchat"></i>
+        <i class="fa-brands fa-github"></i>
+        </p>
+      </div>
+      <h3>
+        Template from <a href="https://www.w3schools.com/w3css/default.asp">w3.css</a>
+      </h3>
     </footer>
-   
+    <script>
+  const btn = document.querySelector("header button");
+  const content = document.querySelector(".content");
+  const photos1 = document.querySelector(".photos1");
+  const photos2 = document.querySelector(".photos2");
+  const photos3 = document.querySelector(".photos3");
 
 
-  </body>
+  btn.addEventListener("click", () => {
+    content.classList.toggle("gapped");
+    photos1.classList.toggle("gapped");
+    photos2.classList.toggle("gapped");
+    photos3.classList.toggle("gapped");
+  });
+
+</script>
+</body>
  
 </html>
