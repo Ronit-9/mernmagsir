@@ -6,6 +6,8 @@ import RootLayout from "./RootLayout"
 import NotFound from "./pages/not-found/NotFound"
 import ListItem from "./pages/meal/ListItem"
 import Meal from "./pages/meal/Meal"
+import Search from "./pages/meal/Search"
+
 
 
 export default function App() {
@@ -27,11 +29,16 @@ export default function App() {
           element: <Meal/>
 
         },
+        {
+           path: 'search',
+           element: <Search/>
+        },
       
         {
           path: "*",
           element: <NotFound/>
         }
+        
       ]
     }
   ])

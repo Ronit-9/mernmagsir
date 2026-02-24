@@ -1,44 +1,16 @@
 
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router"
-import { baseUrl } from "../../lib/constant"
+
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { useApi } from "../../hooks/apiHook.js";
 
 export default function ListItem() {
+  const nav= useNavigate();
 
   const { label } = useParams();
 
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(false);
-  const [err, setErr] = useState();
-
-
-
-  const getData = async () => {
-    try {
-      setLoad(true);
-      const response = await axios.get(`${baseUrl}/filter.php`, {
-        params: {
-          c: label
-        }
-      });
-
-      setData(response.data);
-      console.log(response.data);
-      setLoad(false);
-
-    } catch (err) {
-      setErr(err.message);
-      setLoad(false);
-
-    }
-  }
-
-
-  useEffect(() => {
-    getData();
-
-  }, []);
+  const { data, load, err } = useApi("filter.php", { c: label });
 
   if (load) {
     return <h1>Loading...</h1>
@@ -56,7 +28,7 @@ export default function ListItem() {
 
       {data && data.meals.map((meal) => {
         return (
-          <div key={meal.idMeal} className="flex flex-col justify-center items-center cursor-pointer" onClick={() => window.location.href = `/meal/${meal.idMeal}`}>
+          <div key={meal.idMeal} className="flex flex-col justify-center items-center cursor-pointer" onClick={() => nav(`/meal/${meal.idMeal}`)}>  
             <img src={meal.strMealThumb} alt="" />
             <h1>{meal.strMeal}</h1>
           </div>

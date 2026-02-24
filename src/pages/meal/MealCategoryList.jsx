@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react"
-import { baseUrl } from "../../lib/constant"
+
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -9,41 +7,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { useNavigate } from "react-router"
+import { useNavigate } from "react-router-dom"; 
+import { useApi } from "../../hooks/apiHook.js";
 export default function MealCategoryList() {
-
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(false);
-  const [err, setErr] = useState();
- const nav = useNavigate();
-
-  const getData = async () => {
-    try {
-      setLoad(true);
-      const response = await axios.get(`${baseUrl}/categories.php`);
-      setData(response.data);
-      setLoad(false);
-
-    } catch (err) {
-      setErr(err.message);
-      setLoad(false);
-
-    }
-  }
-
-
-  useEffect(() => {
-    getData();
-
-  }, []);
-
-  if (load) {
-    return <h1>Loading...</h1>
-  }
-  if (err) {
-    return <h1 className="text-red-700">{err}</h1>
-  }
-
+  const nav = useNavigate();
+ 
+ const { data, load, err } = useApi("categories.php");
+if (load) {
+  return <h1>Loading...</h1>
+}
+if (err) {
+  return <h1 className="text-red-700">{err}</h1>
+}
  
 
   return (
