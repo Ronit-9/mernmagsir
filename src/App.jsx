@@ -33,7 +33,11 @@ export default function App() {
           }
         ]
         }
-      ])
+      ],
+    {
+    basename: "/mernmangsir"
+  }
+);
   return (
    <RouterProvider router={router}/>
   )
