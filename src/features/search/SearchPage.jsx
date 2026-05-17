@@ -169,9 +169,10 @@ export default function SearchPage() {
           </p>
 
           {results.map((user) => {
-            const avatarSrc = user.profilePicture
-              ? `${BASE_URL}/profileuploads/${user.profilePicture}`
-              : null;
+            // const avatarSrc = user.profilePicture
+            //   ? `${BASE_URL}/profileuploads/${user.profilePicture}`
+            //   : null;
+            const avatarSrc = user.profilePicture || null;
 
             const isMe = user._id === currentUser?.id;
 

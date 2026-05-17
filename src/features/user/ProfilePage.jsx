@@ -25,7 +25,8 @@ function PostCard({ post }) {
     <div className="bg-white rounded-2xl sm:rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
       {post.image && (
         <img
-          src={`${BASE_URL}/uploads/${post.image}`}
+          // src={`${BASE_URL}/uploads/${post.image}`}
+          src={post.image}
           alt="Post"
           className="w-full max-h-[280px] sm:max-h-[400px] object-cover"
         />
@@ -45,7 +46,8 @@ function PostCard({ post }) {
 }
 
 function UserListItem({ user, onClick }) {
-  const avatarSrc = user?.profilePicture ? `${BASE_URL}/profileuploads/${user.profilePicture}` : null;
+  // const avatarSrc = user?.profilePicture ? `${BASE_URL}/profileuploads/${user.profilePicture}` : null;
+  const avatarSrc = user?.profilePicture || null;
   return (
     <button onClick={onClick}
       className="w-full flex items-center gap-3 rounded-xl sm:rounded-2xl px-3 py-2.5 sm:py-3 hover:bg-gray-50 transition text-left">
@@ -85,7 +87,8 @@ export default function ProfilePage() {
   );
 
   const { user, posts } = data;
-  const avatarSrc = user?.profilePicture ? `${BASE_URL}/profileuploads/${user.profilePicture}` : null;
+  // const avatarSrc = user?.profilePicture ? `${BASE_URL}/profileuploads/${user.profilePicture}` : null;
+  const avatarSrc = user?.profilePicture || null;
   const isFollowing = user.followers?.some((f) => f._id === currentUser?.id || f === currentUser?.id);
 
   const handleFollow = async () => {

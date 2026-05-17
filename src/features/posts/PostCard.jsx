@@ -8,21 +8,33 @@ import {
   useDeleteCommentMutation,
   useDeletePostMutation,
 } from '../../services/Post.js';
+
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { BASE_URL } from '../../app/mainApi.js';
-import { FaHeart, FaRegHeart, FaRegCommentDots, FaTrash } from 'react-icons/fa';
+
+import {
+  FaHeart,
+  FaRegHeart,
+  FaRegCommentDots,
+  FaTrash,
+} from 'react-icons/fa';
 
 function getInitials(username = '') {
-  return username.split(/[\s_]+/).map((w) => w[0]?.toUpperCase() ?? '').slice(0, 2).join('');
+  return username
+    .split(/[\s_]+/)
+    .map((w) => w[0]?.toUpperCase() ?? '')
+    .slice(0, 2)
+    .join('');
 }
 
 function timeAgo(date) {
   const diff = Math.floor((Date.now() - new Date(date)) / 1000);
+
   if (diff < 60) return `${diff}s`;
   if (diff < 3600) return `${Math.floor(diff / 60)}m`;
   if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
+
   return `${Math.floor(diff / 86400)}d`;
 }
 
@@ -39,41 +51,66 @@ export default function PostCard({ post }) {
   const [commentText, setCommentText] = useState('');
   const [commenting, setCommenting] = useState(false);
 
-  const isLiked = post.likes?.includes(currentUser?.id);
+  const isLiked = post.likes?.some(
+    (id) => id.toString() === currentUser?.id
+  );
+
   const isMyPost = post.author?._id === currentUser?.id;
-  const authorAvatar = post.author?.profilePicture
-    ? `${BASE_URL}/profileuploads/${post.author.profilePicture}`
-    : null;
+
+  // ✅ Direct URL
+  const authorAvatar = post.author?.profilePicture || null;
 
   const handleLike = async () => {
-    try { await likePost(post._id).unwrap(); }
-    catch { toast.error('Could not like post'); }
+    try {
+      await likePost(post._id).unwrap();
+    } catch {
+      toast.error('Could not like post');
+    }
   };
 
   const handleAddComment = async (e) => {
     e.preventDefault();
+
     if (!commentText.trim()) return;
+
     setCommenting(true);
+
     try {
-      await addComment({ postId: post._id, text: commentText.trim() }).unwrap();
+      await addComment({
+        postId: post._id,
+        text: commentText.trim(),
+      }).unwrap();
+
       setCommentText('');
-    } catch { toast.error('Could not add comment'); }
-    finally { setCommenting(false); }
+    } catch {
+      toast.error('Could not add comment');
+    } finally {
+      setCommenting(false);
+    }
   };
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await deleteComment({ postId: post._id, commentId }).unwrap();
+      await deleteComment({
+        postId: post._id,
+        commentId,
+      }).unwrap();
+
       toast.success('Comment deleted');
-    } catch { toast.error('Could not delete comment'); }
+    } catch {
+      toast.error('Could not delete comment');
+    }
   };
 
   const handleDeletePost = async () => {
     if (!window.confirm('Delete this post?')) return;
+
     try {
       await deletePost(post._id).unwrap();
       toast.success('Post deleted');
-    } catch { toast.error('Could not delete post'); }
+    } catch {
+      toast.error('Could not delete post');
+    }
   };
 
   return (
@@ -86,20 +123,34 @@ export default function PostCard({ post }) {
           className="flex items-center gap-2.5 hover:opacity-80 transition"
         >
           <Avatar className="h-9 w-9 sm:h-11 sm:w-11">
-            {authorAvatar && <AvatarImage src={authorAvatar} alt={post.author?.username} />}
+            {authorAvatar && (
+              <AvatarImage
+                src={authorAvatar}
+                alt={post.author?.username}
+              />
+            )}
+
             <AvatarFallback className="bg-black text-white text-xs sm:text-sm font-medium">
               {getInitials(post.author?.username)}
             </AvatarFallback>
           </Avatar>
+
           <div className="flex flex-col items-start">
-            <span className="text-sm font-semibold text-black leading-none">{post.author?.username}</span>
-            <span className="text-xs text-gray-400 mt-0.5">{timeAgo(post.createdAt)} ago</span>
+            <span className="text-sm font-semibold text-black leading-none">
+              {post.author?.username}
+            </span>
+
+            <span className="text-xs text-gray-400 mt-0.5">
+              {timeAgo(post.createdAt)} ago
+            </span>
           </div>
         </button>
 
         {isMyPost && (
-          <button onClick={handleDeletePost}
-            className="h-8 w-8 sm:h-9 sm:w-9 rounded-full hover:bg-red-50 flex items-center justify-center text-gray-400 hover:text-red-500 transition">
+          <button
+            onClick={handleDeletePost}
+            className="h-8 w-8 sm:h-9 sm:w-9 rounded-full hover:bg-red-50 flex items-center justify-center text-gray-400 hover:text-red-500 transition"
+          >
             <FaTrash className="text-xs sm:text-sm" />
           </button>
         )}
@@ -116,8 +167,11 @@ export default function PostCard({ post }) {
       {post.image && (
         <div className="px-3 pb-3">
           <img
-            src={`${BASE_URL}/uploads/${post.image}`}
+            src={post.image}
             alt="Post"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
             className="w-full max-h-[300px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl border border-gray-100"
           />
         </div>
@@ -125,15 +179,28 @@ export default function PostCard({ post }) {
 
       {/* Actions */}
       <div className="flex items-center gap-4 sm:gap-6 px-4 sm:px-5 py-3 border-t border-gray-100">
-        <button onClick={handleLike}
-          className={`flex items-center gap-1.5 sm:gap-2 text-sm font-medium transition ${isLiked ? 'text-red-500' : 'text-gray-500 hover:text-red-500'}`}>
-          {isLiked ? <FaHeart className="text-base sm:text-lg" /> : <FaRegHeart className="text-base sm:text-lg" />}
+        <button
+          onClick={handleLike}
+          className={`flex items-center gap-1.5 sm:gap-2 text-sm font-medium transition ${isLiked
+            ? 'text-red-500'
+            : 'text-gray-500 hover:text-red-500'
+            }`}
+        >
+          {isLiked ? (
+            <FaHeart className="text-base sm:text-lg" />
+          ) : (
+            <FaRegHeart className="text-base sm:text-lg" />
+          )}
+
           <span>{post.likes?.length || 0}</span>
         </button>
 
-        <button onClick={() => setShowComments((p) => !p)}
-          className="flex items-center gap-1.5 sm:gap-2 text-sm font-medium text-gray-500 hover:text-black transition">
+        <button
+          onClick={() => setShowComments((p) => !p)}
+          className="flex items-center gap-1.5 sm:gap-2 text-sm font-medium text-gray-500 hover:text-black transition"
+        >
           <FaRegCommentDots className="text-base sm:text-lg" />
+
           <span>{post.comments?.length || 0}</span>
         </button>
       </div>
@@ -142,62 +209,97 @@ export default function PostCard({ post }) {
       {showComments && (
         <div className="border-t border-gray-100 px-4 sm:px-5 py-4 flex flex-col gap-3">
 
-          {/* List */}
+          {/* Comment List */}
           {post.comments?.map((c) => {
-            const cAvatar = c.author?.profilePicture
-              ? `${BASE_URL}/profileuploads/${c.author.profilePicture}`
-              : null;
-            const isMyComment = c.author?._id === currentUser?.id;
+
+            // ✅ Direct URL
+            const cAvatar = c.author?.profilePicture || null;
+
+            const isMyComment =
+              c.author?._id === currentUser?.id;
 
             return (
               <div key={c._id} className="flex gap-2">
                 <Avatar className="h-7 w-7 sm:h-8 sm:w-8 shrink-0">
-                  {cAvatar && <AvatarImage src={cAvatar} alt={c.author?.username} />}
+                  {cAvatar && (
+                    <AvatarImage
+                      src={cAvatar}
+                      alt={c.author?.username}
+                    />
+                  )}
+
                   <AvatarFallback className="bg-gray-200 text-gray-700 text-xs">
                     {getInitials(c.author?.username)}
                   </AvatarFallback>
                 </Avatar>
+
                 <div className="flex-1 bg-gray-100 rounded-xl sm:rounded-2xl px-3 py-2">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-semibold text-black">{c.author?.username}</p>
-                      <p className="text-xs text-gray-400">{timeAgo(c.createdAt)}</p>
+                      <p className="text-xs font-semibold text-black">
+                        {c.author?.username}
+                      </p>
+
+                      <p className="text-xs text-gray-400">
+                        {timeAgo(c.createdAt)}
+                      </p>
                     </div>
+
                     {isMyComment && (
-                      <button onClick={() => handleDeleteComment(c._id)}
-                        className="text-gray-400 hover:text-red-500 transition text-xs ml-2">✕</button>
+                      <button
+                        onClick={() =>
+                          handleDeleteComment(c._id)
+                        }
+                        className="text-gray-400 hover:text-red-500 transition text-xs ml-2"
+                      >
+                        ✕
+                      </button>
                     )}
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-700 mt-1 leading-relaxed">{c.text}</p>
+
+                  <p className="text-xs sm:text-sm text-gray-700 mt-1 leading-relaxed">
+                    {c.text}
+                  </p>
                 </div>
               </div>
             );
           })}
 
-          {/* Add comment */}
-          <form onSubmit={handleAddComment} className="flex items-center gap-2 mt-1">
+          {/* Add Comment */}
+          <form
+            onSubmit={handleAddComment}
+            className="flex items-center gap-2 mt-1"
+          >
             <Avatar className="h-7 w-7 sm:h-9 sm:w-9 shrink-0">
               {currentUser?.profilePicture && (
-                <AvatarImage src={`${BASE_URL}/profileuploads/${currentUser.profilePicture}`} />
+                <AvatarImage
+                  src={currentUser.profilePicture}
+                />
               )}
+
               <AvatarFallback className="bg-black text-white text-xs">
                 {getInitials(currentUser?.username)}
               </AvatarFallback>
             </Avatar>
+
             <Input
               value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
+              onChange={(e) =>
+                setCommentText(e.target.value)
+              }
               placeholder="Write a comment..."
               maxLength={300}
               className="flex-1 h-9 sm:h-11 rounded-full border-gray-200 bg-gray-50 text-xs sm:text-sm shadow-none focus-visible:ring-0"
             />
-            <Button type="submit"
+
+            <Button
+              type="submit"
               disabled={!commentText.trim() || commenting}
-              className="h-9 sm:h-11 px-3 sm:px-5 rounded-full bg-black hover:bg-gray-800 text-white text-xs sm:text-sm">
+              className="h-9 sm:h-11 px-3 sm:px-5 rounded-full bg-black hover:bg-gray-800 text-white text-xs sm:text-sm"
+            >
               {commenting ? '...' : 'Send'}
             </Button>
           </form>
-
         </div>
       )}
     </div>

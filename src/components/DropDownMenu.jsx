@@ -38,9 +38,10 @@ export default function DropDownMenu({ user }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const avatarSrc = user?.profilePicture
-    ? `${BASE_URL}/profileuploads/${user.profilePicture}`
-    : null;
+  // const avatarSrc = user?.profilePicture
+  //   ? `${BASE_URL}/profileuploads/${user.profilePicture}`
+  //   : null;
+  const avatarSrc = user?.profilePicture || null;
 
   const handleLogout = () => {
     dispatch(clearUser());

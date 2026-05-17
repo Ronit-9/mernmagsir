@@ -33,10 +33,10 @@ export default function EditProfilePage() {
   const [preview, setPreview] = useState(null);
   const fileInputRef = useRef(null);
 
-  const currentAvatar = currentUser?.profilePicture
-    ? `${BASE_URL}/profileuploads/${currentUser.profilePicture}`
-    : null;
-
+  // const currentAvatar = currentUser?.profilePicture
+  //   ? `${BASE_URL}/profileuploads/${currentUser.profilePicture}`
+  //   : null;
+  const currentAvatar = currentUser?.profilePicture || null;
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
